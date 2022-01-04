@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   ioc2rpz:
     build:
@@ -9,8 +9,8 @@ services:
       - "853:853/tcp"
       - "8443:8443/tcp"
     volumes:
-      - ./ioc2rpz/cfg:/opt/ioc2rpz/cfg
-      - ./ioc2rpz/db:/opt/ioc2rpz/db
+      - ~/_data/ioc2rpz/cfg:/opt/ioc2rpz/cfg
+      - ~/_data/ioc2rpz/db:/opt/ioc2rpz/db
     restart: always
     logging:
       driver: syslog
@@ -24,9 +24,9 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     volumes:
-      - ./ioc2rpz/cfg:/opt/ioc2rpz.gui/export-cfg
-      - ./ioc2rpz/db:/opt/ioc2rpz.gui/www/io2cfg
-      - ./ioc2rpz/ssl:/etc/apache2/ssl
+      - ~/_data/ioc2rpz/cfg:/opt/ioc2rpz.gui/export-cfg
+      - ~/_data/ioc2rpz/db:/opt/ioc2rpz.gui/www/io2cfg
+      - ~/_data/ioc2rpz/ssl:/etc/apache2/ssl
     restart: always
     logging:
       driver: syslog
